@@ -53,15 +53,11 @@ node{
         }
         
     stage('Start Docker Service') {
-            steps {
                 sh 'sudo systemctl start docker'
-            }
         }
 
     stage('Deploy Docker Container') {
-            steps {
                 sh 'sudo docker run -itd -p 8084:8081 krishtonnaik1/insure-me:3.0'
-            }
         }
         
     }
