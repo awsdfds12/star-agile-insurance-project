@@ -52,10 +52,17 @@ node{
             
         }
         
-    stage('Configure and Deploy to the test-server'){
-        ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
-    }
-        
+    stage('Start Docker Service') {
+            steps {
+                sh 'sudo systemctl start docker'
+            }
+        }
+
+    stage('Deploy Docker Container') {
+            steps {
+                sh 'docker run -itd -p 8084:8081 krishtonnaik1/insure-me:3.0'
+            }
+        }
         
     }
 }
