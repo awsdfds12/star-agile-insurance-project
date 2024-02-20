@@ -53,7 +53,7 @@ node{
         }
         
     stage('Start Docker Service') {
-                sh 'sudo systemctl start docker'
+                sh 'sudo service docker start'
         }
 
     stage('Deploy Docker Container') {
