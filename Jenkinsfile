@@ -60,7 +60,7 @@ node{
 
     stage('Deploy Docker Container') {
             steps {
-                sh 'docker run -itd -p 8084:8081 krishtonnaik1/insure-me:3.0'
+                sh 'sudo docker run -itd -p 8084:8081 krishtonnaik1/insure-me:3.0'
             }
         }
         
